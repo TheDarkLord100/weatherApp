@@ -61,7 +61,7 @@ class _MyAppState extends State<MyApp> {
       child: Column(children: [
         const Text(
           'Fetching Temperature',
-          style: TextStyle(fontSize: 30),
+          style: TextStyle(fontSize: 36),
         ),
         Container(
             margin: const EdgeInsets.only(top: 50.0),
