@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:temperature/path/secrets.dart';
 import 'package:weather/weather.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 enum AppState { NOT_DOWNLOADED, DOWNLOADING, FINISHED_DOWNLOADING }
 
-void main() {
+
+Future main() async {
+ await dotenv.load(fileName: ".env"); // mergeWith optional, you can include Platform.environment for Mobile/Desktop app
+
   runApp(MyApp());
 }
 
@@ -14,7 +18,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  String key = API_KEY;
+  String key = dotenv.env['API_KEY'].toString();
   late WeatherFactory ws;
   List<Weather> _data = [];
   AppState _state = AppState.NOT_DOWNLOADED;
