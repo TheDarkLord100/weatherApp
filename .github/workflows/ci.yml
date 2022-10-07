@@ -16,8 +16,9 @@ jobs:
       - uses: subosito/flutter-action@v1
         with:
           channel: "stable"
-- run: echo $API_KEY | base64 -d > lib/path/secrets.dart
-env: API_KEY: ${{secrets.API_KEY}}
+      - run: echo $API_KEY | base64 -d > lib/path/secrets.dart
+        env: 
+            API_KEY: ${{secrets.API_KEY}}
       - run: flutter pub get
       - run: flutter test
 
