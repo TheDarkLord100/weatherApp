@@ -143,7 +143,7 @@ class _MyAppState extends State<MyApp> {
         : _state == AppState.DOWNLOADING
             ? downloading()
             : notDownloaded();
-  }
+  }//added comment
 
   @override
   Widget build(BuildContext context) {
